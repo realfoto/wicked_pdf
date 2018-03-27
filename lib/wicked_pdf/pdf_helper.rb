@@ -3,17 +3,17 @@ class WickedPdf
     def self.included(base)
       # Protect from trying to augment modules that appear
       # as the result of adding other gems.
-      return if base != ActionController::Base
+      #return if base != ActionController::Base
 
-      base.class_eval do
-        alias_method_chain :render, :wicked_pdf
-        alias_method_chain :render_to_string, :wicked_pdf
-        if respond_to?(:after_action)
-          after_action :clean_temp_files
-        else
-          after_filter :clean_temp_files
-        end
-      end
+      #base.class_eval do
+      #  alias_method_chain :render, :wicked_pdf
+      #  alias_method_chain :render_to_string, :wicked_pdf
+      #  if respond_to?(:after_action)
+      #    after_action :clean_temp_files
+      #  else
+      #    after_filter :clean_temp_files
+      #  end
+      #end
     end
 
     def self.prepended(base)
